@@ -1,0 +1,122 @@
+What is Full-Stack Web Development?
+The front end is where we are delivering the content to the user, typically in a browser where the user accesses the information. This is where we use technologies like HTML, CSS and JavaScript to render the content for the user. This information delivery is supported behind the scenes by a back end support which is typically implemented these days using technologies like PHP, Java, ASP.NET, Ruby, Python or NodeJS.
+We often hear people talking about the three-tier architecture for web development. In this approach, the entire web application is organized into three different layers. The presentation layer which is concerned with delivering the information to the user. So, this is usually the UI related concerns that are dealt with at the presentation layer. The business logic layer on the other hand is concerned more about the data, the data validation, the dynamic content processing and generating the content to be delivered to the user. This is backed up behind the scenes with the data persistence layer or the data access layer. So, this is concerned with how we store and interact with the data, typically in the form of a database and access this data through an API.
+The business logic layer is usually implemented these days using technologies like Ruby, Python, PHP, Java, C++ or ASP.NET. This business logic layer is interacting behind the scenes with the persistent data typically stored in a relational database and accessed by the business logic layer. The business logic layer is also concerned with the rendering of information to the front side, typically, in the form of server-side rendering this case. So, the HTML, CSS and JavaScript is generated on the server-side and then sent over to the client-side in the form of a web page.
+In this approach, we need specialists in each of these three layers. So, a front-end specialists typically would be well-versed in HTML, CSS and JavaScript. The business logic specialist would be well-versed in one of the technologies that is used for implementing the business logic and then you need a data specialist who will be well-versed in the relational database management system. There is an increasing trend towards using a single language to implement the entire stack, this being JavaScript. So, you could have the front-end implemented, for example, as a single page application using frameworks like Angular or React. You have the server-side or the business logic layer being implemented using technologies like NodeJS, which is also dependent on JavaScript. Then you have the data storage itself being implemented using technologies like MongoDB which stores data in the form of JSON documents. The information exchange between the server-side and the client-side is usually done using JSON as the format and the server-side supports a REST API endpoint.
+a full-stack web developer is someone who has honed skills in both front-end web design/development and back-end/server coding.
+
+Node.js and NPM
+Node.js allows us to bring the power of JavaScript to the desktop.
+(Node.js is a popular Javascript-based server framework)
+Node.js is based on the JavaScript runtime engine that has been built for the Chrome browser. So, the Chrome V8 JavaScript Engine has been ported from the browser to run on the desktop and support the execution of JavaScript programs on the desktop.
+Node.js is built around an event-driven, non-blocking I/O model which makes it very efficient to run asynchronous JavaScript programs on the desktop.
+When you install Node on your computer, NPM automatically gets installed. The Node Package Manager is the manager for the Node ecosystem that manages all the Node modules and packages that have been made publicly available by many different users.
+A typical Node package consists of JavaScript files together with a file called package.json which is the manifest file for this node module.
+Node.js Use	Cases
+• Utilities	written in	JavaScript for web development:
+– Bower, Grunt, Gulp, Yeoman etc.
+• Server-side Development:
+– Web	server, Business logic, Database	access
+
+Setting up Node.js and NPM
+Scaricarlo da https://nodejs.org/ o da https://nodejs.org/en/download/
+ed eseguirlo.
+NB: nel corso raccomanda di ave installato prima Git - boh???
+
+Risorse:
+https://nodejs.org/en/
+https://www.npmjs.com/
+https://nodejs.org/api/ (documentazione su Node)
+https://docs.npmjs.com/(documentazione su NPM)
+
+Node Modules
+JavaScript, when it is first designed was meant to be a scripting language to be used within the browser. So the small realm within which it was supposed to be used is the browser. Now JavaScript has gone way beyond its original intention, and now is being used for writing applications.
+JavaScript originally was never designed with any common libraries. If you look at standard programming languages like C, C++, Java, and so on, they all have standard libraries that enable you to access the underlying hardware. And also provide a structured way of organization the application into multiple files and then combining them together when you create an application. JavaScript never had any of this support when it began. Because as we understand JavaScript was not designed for the purpose for which it is being used today.
+Now, if you have a very large JavaScript application, it becomes cumbersome to write the entire code in one single file. And obviously you want the results to be able to break your application into multiple facts.
+Now, unlike traditional programming languages, JavaScript never had a way of distributing the code into multiple files and then combining them together. So this is where the CommonJS API came in to fill in this gap that fills in the needs for some common application. And this CommonJS format defines a module format that can be used for breaking up your JavaScript application into multiple files.
+And within JavaScript, with the CommonJS format, each file becomes its own Node module.
+So as I just mentioned, each file in a Node application becomes its own Node module. So the file or the JavaScript file defines the boundary for a Node module.
+So within that file, the CommonJS specification provides a variable called the module variable which is a JavaScript object. And this gives you access to the current module definition within a file. And on this module object, you have the module.exports property which determines the export from the current module. So when you assign something to the module.exports property, then that becomes the exported value from the current module. So that when this module is imported into another file of our Node application, then whatever is exported from this module becomes available in the second application.
+The "require" function is used to import a Node module that is defined in other file into the current file so that it can be used within our node application.
+Node modules can be of three categories.
+We have file-based Node modules where we define the Node module within a file, within our application and we make use of it within our application.
+Then, we have core modules that are already part of Node. The Node designers kept these core modules intentionally small so that Node can be kept small.
+Then we have external Node modules. These are third-party Node modules that are developed by Node developers, and then made available through the Node ecosystem. So these external Node modules can be install within our system using NPM.
+So many times you would see us using NPM install and the name of the Node module and that will be included within our Node application in a folder named node_modules folder.
+When you need to use a Node module within another Node file within your application, then you would use the require function.
+The require function for file-based Node modules, you will specify this as require and then specify the path to the file which contains the Node module. So you would say require./, the module name if the file exists in the current folder written which your Node application exist. So this specify the relative path to the file from the current location. And also for the core and external modules, you would normally specify them by saying require and the name of the module. You would explicitly specify a path for it. If it is a core module, it's already part of Node and so it will be automatically included. If it is an external module, then it will be installed either within the node_modules folder in the current folder, or if the Node doesn't find the external module within the node_modules folder in the current folder, it will go up to the next higher level folder looking for that Node module. Or the next higher level folder and up the hierarchy until it locates the Node modules which will then be imported to be used within your Node application. If it is unable to find the Node module up the hierarchy, then it'll obviously raise an error saying that the Node module is missing.
+
+Understanding Node Modules
+Per creare un'applicazione NodeJS, creare una cartella.
+Da cmd portarsi nella cartella e dare "npm init" per inizializzarla come node application. Il comando crea il fil manifest ("package.json") dell'applicazione.
+Aprire "package.json", e modificare "scripts" aggiungendo "start ...":
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	 "start": "node index"
+  },
+NB: aggiungere anche la "," alla fine di "test"!
+Sempre nella stessa cartella creare il file "index.js" (è citato in "main"): questo è il "main" dell'applicazione.
+
+"Hello world" come programma normale
+Inserire in index.js:
+console.log("Hello world");
+e salvare.
+Da CMD portarsi nella cartella del progetto e dare:
+npm start
+(il programma viene eseguito, e l'output è in cmd)
+
+
+"Hello world" da web server
+Inserire in index.js:
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end('Hello World!');
+}).listen(8088); 
+
+e salvare.
+
+Da CMD portarsi nella cartella del progetto e dare:
+npm start (funziona anche "node index": differenza???)
+
+Questo fa partire il server web sulla porta specificata. Aprire un browser e scrivere sulla barra degli indirizzi:
+localhost:8088 (o http://localhost:8088/)
+
+"Rettangolo" come programma normale
+Come prima, ma in index.js scrivere:
+var rect = {
+	perimeter: (x, y) => (2 * (x + y)),
+	area: (x, y) => (x * y)
+};
+
+function solveRect(base, alt) {
+	console.log("Rettangolo: base = " + base + ";   altezza= " + alt);
+	console.log("Perimetro = " + rect.perimeter(base, alt));
+	console.log("Area = " + rect.area(base, alt));
+}
+
+
+//MAIN
+solveRect(2, 4);
+
+Da CMD portarsi nella cartella del progetto e dare:
+npm start
+(il programma viene eseguito, e l'output è in cmd)
+
+Node Modules: Callbacks and Error Handling
+Before we proceed on to talk about Node Modules and Callbacks, we need to understand two salient features about the JavaScript language itself.
+First and foremost, JavaScript supports what is called as first-class functions.
+A first-class functions si a function that can be treated just like any other variable. And hence, functions can be passed around as parameters inside function calls to other functions.
+And that essentially allows us to send in functions as callback functions that can be called from another Node module in order to get some work accomplished.
+The second aspect about JavaScript is the support for Closures.
+A function defined inside another function automatically gets access to the variables that are declared in the outer function. So even if the outer function is completed execution, when the inner function executes later the inner function will still have access to the values of the variables within that outer function.
+
+Networking Essentials
+--
+
+
+Introduction to Express
+Express è un framework per nodejs.
+Per installare Express, che è implementato come un modulo, bisogna installarlo nel progetto:
+da cmd portarsi nella directory del progetto e dare:
+npm install express --save
