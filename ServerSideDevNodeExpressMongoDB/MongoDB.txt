@@ -1,0 +1,58 @@
+Info e doc
+Per documentazione: https://docs.mongodb.com/
+Il manuale: https://docs.mongodb.com/manual/
+Installazione: https://docs.mongodb.com/manual/installation/
+Installazione community ed.: https://docs.mongodb.com/manual/administration/install-community/
+Mongo shell: https://docs.mongodb.com/manual/mongo/
+Per corsi su MongoDB: https://university.mongodb.com/
+
+Installare MongoDB
+Scaricare MongoDB da https://www.mongodb.com/it
+(scegliere - da "Software" - la versione "Community server")
+ed eseguirlo:
+- Installazione completa
+- NO come servizio (deselzionare la checkbox)
+- Installare anche Compass (default)
+
+Aggiungere la directory degli eseguibili al path:
+Start / Pannello di controllo / Sistema e sicurezza / Sistema / Impostazioni di sisteema avanzate / Variabili d'ambiente (utente) -> Path -> Modifica -> Nuovo:
+C:\Program Files\MongoDB\Server\VERSIONE\bin
+(es. C:\Program Files\MongoDB\Server\4.4\bin)
+
+** Eseguire e usare MongoDB
+(si può usare Compass, o anche Atlas (è un servizio di rete che permette di usare gratuitamente piccoli db, fino a 512 MB))
+... oppure, "a mano":
+- creare la directory per i database (solo la prima volta):
+  ad es. md \data\db (in C:, lo stesso drive dove è installato MongoDB)
+  oppure md \mongodbdata\db
+- far partire il server: aprire come amministratore una shell (cmd/PS)
+	- far partire il server MongoDB (NB: la directory \data\db deve esistere):
+	  mongod --dbpath="c:[path alla directory db creata in precedenza]"
+	  ad es: mongod --dbpath=c:\mongodbdata\db
+	  -> viene visualizzata una valanga di messaggi poco chiari;
+	  l'ultimo dovrebbe essere del tipo "...Waiting for connections..."
+	  -> lasciare la finestra aperta
+- OPPURE, per non dover scrivere ogni volta --dbpath......:
+  - creare nella directory di mongodb (...\bin) il file mongod.ps1, con dentro:
+    & "C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe" --dbpath=c:\mongodbdata\db
+  - da adesso in poi per far partire il server aprire come amministratore una shell PS e scrivere: mongod
+- far partire il client: usare Compass o aprire un'altra shell (cmd/PS)
+	- connettere una shell MongoDB al server MongoDB:
+	  mongo
+	  -> la connessione avviene su mongodb://127.0.0.1:27017
+- Alcuni comandi:
+	- db.help() (mostra i comandi disponibili)
+	- db (mostra il db attualmente in uso)
+	- db.getCollectionNames() (mostra le collections del db attivo)
+	- use [dbName] (rende attivo dbName; se il db non esiste lo crea; ora tutti i comandi vengono eseguiti su dbName)
+	- db.[collectionName] (crea nel db corrente la collezione (~tabella) di nome "collectionName")
+	- db.[collectionName].insert([jsonDoc]) (inserisce in "collectionName" il documento specificato); es:
+	db.dishes.insert({"name": "Nome di prova", "description": "descrizione"})
+	(se la collezione non esiste, l'insert la crea e poi inserisce)
+	- db.[collectionName].find() (mostra tutti i documenti della collezione)
+	- db.[collectionName].find().pretty() (li mostra formattati)
+	- exit (chiude la shell MongoDB)
+
+- Chiusura
+  - chiudere prima il client (es. da shell: exit)
+  - poi chiudere il server (^C)

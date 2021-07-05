@@ -1,0 +1,15 @@
+{
+  "name": "es10-mongoose",
+  "version": "1.0.0",
+  "decription": "Uso di Mongoose con subdocument per semplici operazioni su Mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "Alessandro Cazziolato",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.12.3"
+  }
+}

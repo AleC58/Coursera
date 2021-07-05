@@ -1,11 +1,11 @@
-What is Full-Stack Web Development?
+** What is Full-Stack Web Development?
 The front end is where we are delivering the content to the user, typically in a browser where the user accesses the information. This is where we use technologies like HTML, CSS and JavaScript to render the content for the user. This information delivery is supported behind the scenes by a back end support which is typically implemented these days using technologies like PHP, Java, ASP.NET, Ruby, Python or NodeJS.
 We often hear people talking about the three-tier architecture for web development. In this approach, the entire web application is organized into three different layers. The presentation layer which is concerned with delivering the information to the user. So, this is usually the UI related concerns that are dealt with at the presentation layer. The business logic layer on the other hand is concerned more about the data, the data validation, the dynamic content processing and generating the content to be delivered to the user. This is backed up behind the scenes with the data persistence layer or the data access layer. So, this is concerned with how we store and interact with the data, typically in the form of a database and access this data through an API.
 The business logic layer is usually implemented these days using technologies like Ruby, Python, PHP, Java, C++ or ASP.NET. This business logic layer is interacting behind the scenes with the persistent data typically stored in a relational database and accessed by the business logic layer. The business logic layer is also concerned with the rendering of information to the front side, typically, in the form of server-side rendering this case. So, the HTML, CSS and JavaScript is generated on the server-side and then sent over to the client-side in the form of a web page.
 In this approach, we need specialists in each of these three layers. So, a front-end specialists typically would be well-versed in HTML, CSS and JavaScript. The business logic specialist would be well-versed in one of the technologies that is used for implementing the business logic and then you need a data specialist who will be well-versed in the relational database management system. There is an increasing trend towards using a single language to implement the entire stack, this being JavaScript. So, you could have the front-end implemented, for example, as a single page application using frameworks like Angular or React. You have the server-side or the business logic layer being implemented using technologies like NodeJS, which is also dependent on JavaScript. Then you have the data storage itself being implemented using technologies like MongoDB which stores data in the form of JSON documents. The information exchange between the server-side and the client-side is usually done using JSON as the format and the server-side supports a REST API endpoint.
 a full-stack web developer is someone who has honed skills in both front-end web design/development and back-end/server coding.
 
-Node.js and NPM
+** Node.js and NPM
 Node.js allows us to bring the power of JavaScript to the desktop.
 (Node.js is a popular Javascript-based server framework)
 Node.js is based on the JavaScript runtime engine that has been built for the Chrome browser. So, the Chrome V8 JavaScript Engine has been ported from the browser to run on the desktop and support the execution of JavaScript programs on the desktop.
@@ -29,7 +29,7 @@ https://www.npmjs.com/
 https://nodejs.org/api/ (documentazione su Node)
 https://docs.npmjs.com/(documentazione su NPM)
 
-Node Modules
+** Node Modules
 JavaScript, when it is first designed was meant to be a scripting language to be used within the browser. So the small realm within which it was supposed to be used is the browser. Now JavaScript has gone way beyond its original intention, and now is being used for writing applications.
 JavaScript originally was never designed with any common libraries. If you look at standard programming languages like C, C++, Java, and so on, they all have standard libraries that enable you to access the underlying hardware. And also provide a structured way of organization the application into multiple files and then combining them together when you create an application. JavaScript never had any of this support when it began. Because as we understand JavaScript was not designed for the purpose for which it is being used today.
 Now, if you have a very large JavaScript application, it becomes cumbersome to write the entire code in one single file. And obviously you want the results to be able to break your application into multiple facts.
@@ -46,7 +46,7 @@ So many times you would see us using NPM install and the name of the Node module
 When you need to use a Node module within another Node file within your application, then you would use the require function.
 The require function for file-based Node modules, you will specify this as require and then specify the path to the file which contains the Node module. So you would say require./, the module name if the file exists in the current folder written which your Node application exist. So this specify the relative path to the file from the current location. And also for the core and external modules, you would normally specify them by saying require and the name of the module. You would explicitly specify a path for it. If it is a core module, it's already part of Node and so it will be automatically included. If it is an external module, then it will be installed either within the node_modules folder in the current folder, or if the Node doesn't find the external module within the node_modules folder in the current folder, it will go up to the next higher level folder looking for that Node module. Or the next higher level folder and up the hierarchy until it locates the Node modules which will then be imported to be used within your Node application. If it is unable to find the Node module up the hierarchy, then it'll obviously raise an error saying that the Node module is missing.
 
-Understanding Node Modules
+** Understanding Node Modules
 Per creare un'applicazione NodeJS, creare una cartella.
 Da cmd portarsi nella cartella e dare "npm init" per inizializzarla come node application. Il comando crea il fil manifest ("package.json") dell'applicazione.
 Aprire "package.json", e modificare "scripts" aggiungendo "start ...":
@@ -111,12 +111,212 @@ And that essentially allows us to send in functions as callback functions that c
 The second aspect about JavaScript is the support for Closures.
 A function defined inside another function automatically gets access to the variables that are declared in the outer function. So even if the outer function is completed execution, when the inner function executes later the inner function will still have access to the values of the variables within that outer function.
 
-Networking Essentials
+** Networking Essentials
 --
 
 
-Introduction to Express
+** Introduction to Express
 Express è un framework per nodejs.
-Per installare Express, che è implementato come un modulo, bisogna installarlo nel progetto:
+Per usare Express, che è implementato come un modulo, bisogna installarlo nel progetto:
 da cmd portarsi nella directory del progetto e dare:
 npm install express --save
+(NB: si può anche usare il terminale integrato in VScode: aprirlo con View / Terminal [Ctrl + ò])
+Il comando, oltre a scaricare i file necessari (nella directory node_modules), modifica anche package.json, aggiungendoci la dipendenza per Express.
+Se mettiamo il progetto su GitHub, non vogliamo caricare anche tutta questa roba, per cui creiamo um file .gitignore (nella radice del progetto) con dentro:
+node_modules
+
+in modo che i commit/push ignorino il contenuto di node_modules.
+(quando si clona il repository si può ricreare l'intero progetto con npm install, che leggendo le dipendenze in package.json sistema tutto).
+Per loggare info, al posto di console.log(...) useremo "morgan", che fa i log in automatico. Per installarlo (come per Express):
+da cmd portarsi nella directory del progetto e dare:
+npm install morgan --save
+
+Il server viene creato con il metodo 
+objExpress.use((req, res, next) => {GESTIONE})
+Le pagine statiche vengono servite automaticamente con
+app.use(express.static(__dirname + '/public'));
+-> serve tutte le pagine contenute in [root]/public
+(__dirname viene risolta come la root del sito)
+
+** Brief Representational State Transfer (REST)
+What exactly are web services? Web Services are a way of designing systems to support interoperability among systems that are connected over a network like the internet as we see today. This is what we refer to as a service-oriented architecture. Now, what this means is that you provide a standardized way for two machines that are connected to the internet to be able to communicate with each other at the application layer level for web-based applications using open standards.
+Two common approaches that are used for supporting web services are SOAP. The Simple Object Access Protocol based web services which uses the web services description language for specifying how the two endpoints communicate with each other. Typically SOAP is based on using XML as the format for the messages being exchanged between the two endpoints. Representational State Transfer or REST also uses web standards, but the exchange of data between the two endpoints could be either XML or increasingly using JSON as the format. The REST way of interoperability is simpler compared to SOAP
+Typically, client-server communication is facilitated using REST where the server supports a REST API and the client can then invoke the REST API endpoints in order to obtain information or to upload information to the server.
+Representational State Transfer is a style of software architecture that is specially designed for distributed hypermedia over the World Wide Web. Now this was first introduced by Roy Fielding in his PhD thesis.
+This is a collection of network principles that outline how resources can be made available on servers and these resources can be accessed from clients by identifying the resources using rest API endpoints.
+Within Representational State Transfer, there are four basic design principles. First and foremost, REST is built upon HTTP protocol, so it uses all the HTTP methods that we have already seen in the previous lesson. Second, REST is designed to be stateless, meaning that the server doesn't store any information about the state after the communication is completed. So when a server receives the request, the server replies, and then after that it doesn't remember anything more about the conversation between the client and the server. Third, the REST way of providing resources is to expose a directory structure like URLs (Uniform Resource Locators - URLs). Fourth, the format for data exchange is typically JSON or XML o testo-
+ One of the motivations for Roy suggesting REST as a way for supporting web services is that it captures all the things that are good about the World Wide Web and that made the World Wide Web successful. The use of Uniform Resource Indicators or Uniform Resource Locators (URLs) which allow you to address resources by specifying them as a URL. The second one, being a protocol that lives on top of HTTP protocol. HTTP has already found wide deployment in the internet. Third, the request response cycle that HTTP is well-known for. So you send a request, the server receives your request, processes the request, send the response to the request, and the client receives the response, acts upon that, and may generate further requests.
+ Now, the HTTP protocol as we have seen earlier, we will use all the various verbs that HTTP provides. specifically, the GET, PUT, POST and DELETE for being able to specify operations to be done on resources that are stored on the server-side.
+ So for example, if you do an HTTP GET request, you are asking for the server to return the resource. If you do a POST request, you're asking for the server to create a new resource. If you do a PUT request, you are asking for the server to update an existing resource. And if you issue a DELETE request, you are asking for the server to delete the resource that is identified by the particular URL.
+ Nouns specifically refer to resources and these resources are usually identified by their URLs and these are unconstrained. Verbs are constraint and these specify the actions to be done on the resources and representations as we see. When the information needs to be conveyed from the server to the client or from the client to the server, how you encode the information. Typically, either using JSON or using XML.
+ Resource is the key abstraction that REST works around. So, the information is abstracted in the form of a resource and the resource is identified by specifying it by using a URL. So, any information that can be encapsulated and be made available, can be identified as a resource.
+ A piece of information like the current weather in Hong Kong could be a resource, an image could be a resource, a stock price information could be a resource and so on.
+ E' molto importante la strategia per dare i nomi (... But dishes/123 for example, might mean dish number 123.
+ Now, these resources can be organized into a hierarchy of the specification of this URI. So, as you traverse the path, you go from the more general to the more specific of the resource.
+ The second part of the REST API are the verbs. In particular, we are interested in the four verbs of HTTP the GET, PUT, POST and DELETE.
+ these verbs will be mapped into actions that we want to be performed on the resource, on the server-side.
+ So, as you can see, the four verbs; GET, POST, PUT and DELETE, are mapped into the four CRUD operations that you can carry out on a database that stores these resources on the server-side.
+ So, when you issue a GET request to a REST API endpoint, you are asking for either a collection of resources represented by URI or a specific resource which is identified by the ID of that particular resource, specified within the URL. So, as you see in this example, if you say, dishes/452, you are meaning to say that dish number 452 with the ID 452 should be returned to the client-side.
+ Similarly, the POST operation as we saw is used to create the resource. So, when you create the resource, the content of describing the resource would be in the form of a JSON representation or an XML representation and that will be included in the body of the request message that is sent to the server-side.
+ When the server receives that request message, the server creates that resource on the server-side and then returns either a conformation or a error to indicate that the resource creation failed.
+ When the server receives that request message, the server creates that resource on the server-side and then returns either a conformation or a error to indicate that the resource creation failed.
+ Of course, the representations, as I have been emphasizing, the two common formats for representing is either JSON or XML. The last part that we need to emphasize is that server-side should be completely stateless, which means that the server-side does not track the client state because if the server needs to track the clients state, it will not be scalable.
+ So, for a scalable implementation of the server-side, you normally use a stateless server on the server-side. So, every request that the client sends to the server will be treated as an independent request and will not reflect upon previous requests that have already been handled by the server from that particular client.
+ So, it's the responsibility of the client to track its own state, either in the form of using cookies or using a client-side database, whatever means that is suitable. Now, this approach where the client tracks its own state is a lot more scalable because each individual client will be responsible for tracking its own state.
+ This is where the client-side MVC setup helps us in this regard.
+ 
+ ** Express Router
+ You have seen how the REST API endpoints support a way for a client application to be able to either retrieve data from the server or upload data to the server using the various HTTP operations. In this lecture and exercise that follows this lecture, we'll look specifically about what kind of support Express supports for designing and implementing a REST API-based server.
+ In particular, we'll also look at the Express router, and how it enables us to subdivide our application and then organize it into multiple mini Express-like applications, which combine together to form the Express application,
+ Now in this lecture, we'll look at how Express supports the development of a REST API server. We'll look at Express's support for various matters like app.all, app.get, put, post, and delete, and how these methods can be used to construct a REST API server.
+ Express ovviamente supporta i parametri (:nomeParam) negli URI.
+ So in there, the parameter, the dishId parameter itself can be obtained by using the request object on which the params property you supported and the params property supports all the incoming request parameters.
+When you send a PUT or a POST request from the client to the server, you're often enclosing the data in the body of the message that is sent to the server. Now, which means that we need a method of extracting information from the body of the message. So this is where the body parser middleware for Express is very useful. So the body parser enables us to parse the information from the body of the message.
+To use the body parser, as we would expect, we would install the body-parser node module, and then require it within our Express application, and then specify app.use(bodyParser). And if the body contains data in the JSON format, you can say bodyParser.json, so which means that this will parse only data that is in JSON format that is enclosed in the body of that request message.
+The body parser, as you would expect, parses the body of the message and populates the req.body property. So, on the request, the body property will contain whatever is parsed in from the body of the request message by body parser.
+If you are implementing an Express application which supports multiple REST API endpoints, then it makes sense to subdivide the code into multiple modules and then make use of them to construct the overall Express application. So this where the Express router comes to our aid. An Express router defines many Express application, and within that many Express application, you can, for example, deal with one particular REST API endpoint in more detail, or one particular pattern of REST API endpoint in more detail.
+
+** Exercise: Express Router
+let's install body-parser (npm install body-parser --save).
+NO! body-parser è DEPRECATO!
+v. es05
+
+** Express Generator: Objectives and Outcomes
+Express generator is a scaffolding tool to quickly generate an Express application with typical support for routes.
+Express Generator is a command line tool that we will install as a global NPM module, and it enables us to quickly scaffold out an Express application:
+npm install express-generator -g
+
+Come funziona?
+da cmd/PS portarsi sulla directory padre del nuovo progetto e scrivere:
+express [appName]
+
+Express Generatorcrea nella directory corrente una nuova directory di nome appName con lo scheletro dell'applicazione; a questo punto portarsi dentro la directory appName e dare:
+npm install
+
+per far installare tutti i moduli richiesti
+
+NB: il "main" adesso si chiama "app.js" (e non più "main.js" come lo abbiamo chiamato finora).
+NB: ricordarsi di mettere il .gitignore (con node_modules) nella root del progetto!
+
+
+** Introduction to MongoDB
+The NoSQL databases themselves can be classified into four different categories. We have document based databases like MongoDB, we have the more simpler key value based databases like Redis, column-family-based databases like Cassandra and then the newer graph databases like Neo4J and indeed there are more now in the market than these examples that I have given.
+Document databases, as the name implies, are built around documents. A document is a self-contained unit of information and can be in many different formats, JSON being one of the most popular formats for storing documents in a document database.
+Documents themselves can be organized into collections. So a collection is a group of documents and in turn, the database itself can be considered as a set of collections.
+Why are NoSQL databases of interest to us? In particular, scalability is one of the reasons why NoSQL databases have shined very well.
+ Now in terms of scalability, when we look at the two requirements; availability and consistency of the databases, typically, SQL databases find it very difficult to meet both requirements simultaneously. So there is a tradeoff between availability and consistency. So this is where NoSQL databases have been a lot more successful at meeting both the requirements.
+ This is where the third aspect highlighted here, partition tolerance, also comes into effect. Now partitioning a SQL database and then distributing it is not as straightforward. Whereas a NoSQL database is lot more amenable to being subdivided and then distributed across multiple servers.
+ The second aspect of why NoSQL databases have been popular is ease of deployment. When you use an SQL database, there is a need for matching the records in your SQL database back to objects in your native language like Java or Javascript and so on. So there is a need for object relational mapping and this is where an intermediate gateway needs to fill in this requirement. With a NoSQL database like a document-based database storing data in the form of JSON, the mapping becomes quite straight forward and that is one of the reasons why NoSQL databases have been very popular in the web development area.
+ Coming to MongoDB in particular, MongoDB is a document database. The server itself can support multiple databases. A database in particular is a set of collections and the collection itself as we discussed earlier is a set of documents. So the document becomes the unit of information in case of MongoDB.
+ The document in MongoDB is nothing but a JSON document. In fact, MongoDB stores the document in a more compact form called as the BSON format.
+ The information about the type of a field value is also stored. And in addition, within the JSON document, additional primitive types are stored which are useful when you are performing operations on the database.
+ Let's talk about the MongoDB object ID. Every document in MongoDB database must have an ID field, an underscore ID field, which acts as the primary key for the document. And this field is unique for each document. The ID field itself can be used in many formats and one particular format that MongoDB automatically assigns in case you don't choose to use your own ID field is the object ID that is created by default by MongoDB.
+The object ID field itself is a 12 byte field which stores information in a specific format. The first four bytes includes a timestamp, the typical Unix timestamp in the resolution of a second. So this is told in the first four bytes. Then the next three bytes towards the machine ID, the machine on which the Mongo server is running and the next two bytes is the process ID, the specific Mongo process which has created this document and then the last field is an increment.
+
+
+** Node and MongoDB
+vedi file .txt
+
+Le operazioni fatte su MongoDB con il driver di NodeJS sono asincrone, e questo perta al "callback hell":
+ogni operazione successiva è nidificata dentro la callback della precedente, rendendo il codice incomprensibile.
+Un modo per risolvere questo problma è l'uso delle "promises". Vedi
+https://docs.mongodb.com/drivers/node/fundamentals/promises/
+
+** Mongoose ODM
+MongoDB stores data in collections in a database. These collections consists of a collection of documents. The documents themselves stored in a MongoDB database have no specific structure imposed on the document. Any document can be stored in any collection.
+MongoDB relies on the developer to enforce the structure on the documents, and gives the complete responsibility to the developer to make sure that documents of the correct structure are added and maintained in the various collections. 
+Now, it is very easy to violate this.
+This is where we will need a more formal way of imposing structure on the documents that are stored in a collection in a MongoDB database. This is where the Mongoose node module comes to our help.
+The Mongoose node module imposes a standardized structure for the documents that are stored in a particular collection.
+So, that is why we often hear people referring to this as the Mongoose ODM. The ODM itself is interpreted by some people to mean Object Data Model or sometimes referred to as Object Document Mapping.
+Some people refer to it as ORM or Object Relational Mapping. Now, when we talk about relational that applies a lot more to relational databases, but then with SQL databases we needed explicitly the object to relational mapping to be put in between the database and our application itself. Because within the application we would be looking at objects but their storage in an SQL database will be in the form of records, and so you need an explicit mapping.
+As we saw with the NoSQL database, this was not explicitly required. But if you need to impose structure on your documents that are stored in a collection then the use of Mongoose to impose this structure is very, very useful.
+The way Mongoose goes around imposing structure on the documents is through the use of schema. Schema, defines the structure of their documents.
+Mongoose schema, implies a structure on the data that is stored in a document in your database. So, it defines all the fields of your document, and also specifies the types of the fields, and also can provide us with additional features that can enable validation on these fields.
+Once you define a schema, the schema is then used in Mongoose to create a model function, and that is what enables you to define the structure for your documents in the database. Schemas themselves can have nesting. So, which means that you can have sub-document that are enclosed inside a document.
+Once you define a schema, the schema is then used in Mongoose to create a model function, and that is what enables you to define the structure for your documents in the database.
+
+Basic Authentication
+vedi https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication
+The Express REST API server that we implemented in the previous module allows any user to perform any of the GET or POST or DELETE operations.
+This means that, if you run a server like that, then anybody can come into your server and start manipulating the information that is present within your database. This is obviously a dangerous situation.
+You need to have some kind of restriction on which kinds of users will be allowed to perform which kinds of operations.
+So for example, if you want a guest to be able to see information about the dishes in your restaurant or the menu of your restaurant and so on, that is perfectly acceptable.
+But, you may allow only an administrator to go in and modify the information about the dish or to delete a dish from the menu.
+Now, you could also have another group of users which will be registered users who may be allowed to save some of their dishes as their favorite dishes, and only they would be able to manipulate the list of their favorite dishes.
+So all this means is that you need some kind of security to be built into your server-side.
+We'll look at how we can authenticate users, and then decide what kind of user this client is. And then depending on the type of the user, you can allow the user to perform certain kinds of operations.
+Let's start with basic authentication, the very basic mechanism that will enable us to authenticate users.
+
+Basic authentication in HTTP is a very simple mechanism, which will ask the user for a user name and password to be submitted with a request.
+And there is a specific structure on how this information will be sent from the client to the server-side. So, this is a matter, the basic access authentication, which HTTP supports, is a matter that will enable a server to challenge a client, and ask for the username and password to be submitted by the client. So the server can challenge the client to authenticate itself by typing in this information. The client needs to send the username and password in response to the challenge from the server-side. So, every request message originating from a client should include the encoded form of the username and password in the request header that goes from the client to the server-side.
+So, how does this authentication work? If a client sends a request to the server, and this client request does not include the authorization formation, then the server will challenge the client, they're asking for the client to submit this information. The server challenges the client by including a header into the reply message coming in.
+The header with the type as WWW-Authenticate, and then the second part where it specifies the type is where it will specify what kind of authentication the client needs to submit. And we will start with the understanding of basic authentication here. And also notice that the reply message will contain a 401 error code, which is unauthorized, which stands for unauthorized.
+So when the reply comes back from the server-side, then the client, in response to this reply coming in, the client will have to send their request, including a specific header field in the request message of the type authorization. And this authorization header field will contain some information in there. For a basic authentication, this information would be in the form of, as the first word here, will be Basic. And then followed by a space here, and followed by a Base64 encoded string here. This Base64 encoded string encodes the username and password in a particular format, and then includes that in the header.
+Now you're saying, if you send out a request message like this, including this, in the header, then anybody in the middle. So if you know anything about security and how man in the middle attacks can be launched, then obviously, this can be retrieved by an intruder in between, and then can be used to fake the real client. Again, we are not getting into that question at the moment. When I talk about HTTPS in the next module, I will come back to address that issue in a bit more detail. But for the moment, the information in the header will be sent over without being encrypted in the header at this moment.
+Now, one other reason why I'm doing this is that, so that we can actually look at the header directly and then see this information in the header itself. So, when the client sends this request, then the server will extract the information from this authorization header in the request header. And then use this information in order to verify whether this is an authorized a client request or not. Now of course your next question would be, what exactly does this authorization header contain? The authorization header itself is constructed as follows. If you have a username and a password, these are the two pieces of information that you will use to authenticate a client. So the username and password will be concatenated into a single string by saying username and a colon, and the password itself. So the username string, colon and password will be concatenated together into an entire string here. This resulting string that we get here is that, encoded using Base64 encode.
+So this Basic64 encoded strings, so this particular information is encoded into a string like this, and then enclosed in the request header going from the client to the server. The request header itself is of the type authorization, and then followed by the actual value here, which says, Basic, and a space here, and the Base64 encoded string here.
+So, when this is received by our sever, the server will extract this information, and then from here, it'll extract the username and password, and then verify whether that matches an authorized user or not on the server-side.
+To help you better understand how we actually organize the express application and how the authentication itself is carried out, as we have learned earlier, express applications themselves are organized in a set of middleware. And the way the express application works is that the middleware are applied to the request and the response message in the order in which it is declared in my express application.
+So if you have a express.use and then you have the first one saying a static server, then after that, you have another middleware, then after that, you have another middleware. The sequence in which they are declared in the express servers app.js file, for example, is the exact sequence in which the middleware will be applied.
+So for example, we saw that we applied Morgan first, then we applied body parser to the middleware. So they must have already transformed the request and the response objects. And then after that, we can include an authentication middleware in place there. The authentication middleware is going to authenticate the request.
+Now, so if you are using basic authentication, do your request must contain in the header the authorization header in place in there. So the authorization header will be extracted by the authentication middleware and then checked to see if the user is authorized. And if the authentication middleware detects that you are an authorized user, then you'll be allowed to proceed forward to the next set of middleware that follows the authentication step.
+And your records will be processed by the subsequent middleware. But other hand, if your authentication middleware decides that you are not an authorized user, then the authentication middleware will take you along a different path off. And then generate an error, and then send back an appropriate error reply to that client-side and will be redirected to the error handler.
+So this redirection to the error handler will be done by calling Next with the error as the parameter to that Next here. So the Next is exactly this Next that we see in the request resource Next here.
+
+Cookies, Tea and err ... Express Sessions
+Cookies are yet another mechanism that is provided that enables your server to be able to expect the client to store some information on the client side and include that information explicitly in each outgoing request.
+So instead of including your base-64 encoded username and password like we did in the basic authentication, using cookies, your server may set up an explicit piece of information on the client side which then will be included in each outgoing request from the client side.
+Now expanding this further, if your server wants to track information about your client, then the server may set up explicitly a session tracking mechanism.
+Cookies can include some basic information in the header of the outgoing request from the client.
+Now, cookies are small and can't store a lot of information in there.
+Now, if we want a lot more of information to be tracked about a client on the server side, then express-sessions enable us to do that.
+So what are HTTP cookies? HTTP cookies, as I mentioned, are small piece of data that is sent from a web server and is stored on the client side.
+Now, almost all browsers have the ability to support the storing of cookies on the client side, and automatically including them in the request when the request is sent to a specific server. So each subsequent request from the client side will include a new header in there with the cookie in the request header.
+Now how does this cookie setting inclusion in the outgoing request work? When a client sends a request to the server site, if the client is authenticated on the server site, for example, using the basic authentication, then the server may in return, set up a cookie.
+Now, to set up a cookie on the client's site, the server will include in the response message a header with the sent cookie header and the actual cookie in the header. Now when the client receives the response message from the server containing the Set-Cookie header, then it'll set up the cookie on the client side. Such that each subsequent request going from the client side will explicitly include a header field called as cookie and actual header that contains as the value, the cookie information that has been sent by the server in the response message.
+So each subsequent request message will carry this cookie in the header. Thereby when the server receives this request message it is able to examine the cookie and surmise who this request is coming from. So it is able to recognize the client by looking at the cookie information. So this is where cookies prove very useful in being able to send authorization information. So in serving including username and password as part of the basic authentication header in every ongoing request. The first time you authenticate yourself, you send your username and password and the server sets up the cookie on your side. Subsequently, you only need to include the cookie in the outgoing request.
+Now cookies also can have an expiry date associated with them. So thereby, at that point, the cookie will be deemed as expired and will no longer be valid. So that is one way of controlling the duration for which an authorization is valid.
+How does Express support cookies?
+The cookie-parser allows the server to set up a cookie in the response header.
+And so cookies, when they are sent from the client-side, included in that request message are parsed on the Express server side, using the cookie-parser. The cookie-parser middleware, which when installed will enable you to parse the incoming cookies.
+Now in order to protect the authenticity of the cookie, the cookies themselves can be signed by the server. Now when the server signs a cookie, the server uses a secret key, which is only known to the server side.
+Now if you know anything about computer security and cryptography and encryption, then you understand what signing and secret keys and public keys and all these things mean.
+But of course, cookies have limitations. They are a fixed size, so they cannot encode a lot of information about the client that their server can retrieve from the cookie.
+Now if you want to have a more elaborate mechanism to track information about a client, then on the server side you can set up what are called as sessions.
+The way it works is that the user session is set up on the server side. So this session itself is a combination of a cookie and a session ID, and the server-side tracks information associated with that session ID, or indexed by that session ID. The session information itself can have any amount of information being tracked on the server-side, and indexed by that cookie. So when a client sends a request over the server, then from within the cookie the session ID is retrieved and that is used as an index into the server side.
+Now, by default, the sessions are stored in memory on the server site. Now obviously, what this means is that if your server is restarted, your memory will be cleared and so all the session information will be gone completely. So instead, many servers will resort to using some form of permanent storage where the session information is tracked. The permanent storage on the server side could either be done through some kind of a file storage.
+Another aspect that you need to pay attention to is the fact that if you are having a distributed server implementation whereby multiple servers are acting as the server for servicing the request, then the distributor server should be able to access the session information.
+Express uses the express-session middleware that supports the use of sessions in an Express server.
+And the express-session Middleware, when the client sends this information, this will be parsed on the server side and this will result in a property called a session being added to the request object. So this session information will be accessible in the request object as req.session. So the req.session will carry additional information about that particular session for that particular client.
+...
+So once you specify this information for your express session middleware then the session will be appropriately set up and so will be tracked on the server side. Each client request will then be mapped to the session information on the server side when the client request is parsed by the express session middleware. And the req.session will be added into the request object.
+
+Express Sessions
+...
+
+Passport
+Passport, a node module that makes authentication quite easy.
+Passport is nothing but an authentication middleware which supports various strategies that can be used for user authentication, including a local strategy like using username and password, or even third party authentication or using OAuth or OAuth 2.0, like using Facebook, Twitter, or Google.
+Può integrarsi anche con Mongoose.
+
+User Authentication with Passport and JSON Web Token
+Risorse: v. es19....txt
+
+Mongoose population
+Document databases, the NoSQL databases, are not designed with relations in mind. Everything that you need in a document is stored completely within the document.
+So you do not have support for relations that you might be more familiar with from the relational database world.
+Now of course, there are situations where you have other documents that already contained the information. And you may want to pull that information into your existing document, rather than duplicating that information. So this is where MongoDB or Mongoose, allows you to store references to other documents within a current document. The reference to the other document is done by using the ObjectID of that other document.
+Now if that is the case, then Mongoose allows you to perform a way of taking the information from the other document and then enclosing it inside the correct document using the Mongoose population support.
+For example, when a comment is posted by the user, instead of storing the user's name within the comment itself, why not have a reference to the specific user that has posted the comment?
+If we can reference another document in the sub-document using ObjectIds, then Mongo helps us to do population of this information from the other document into the current document. So this is where Mongoose population comes to our rescue.
+With Mongoose population, the way Mongoose population works is that it automatically replaces specified paths within a current document. Which has reference to another document by the information from that other document. So in the comment schema, for example, you have an author field that is referring to the ObjectId of the user document that is already in your database. So with Mongoose population, when you ask Mongoose to populate this dish document, then it'll populate the information about the author in the comment field from the user document. So the information about the specific author that is referenced there will be fetched and added into your dish document. And the compound document will be constructed and then sent back to you.
+How does the population actually happen in code? Taking a look at how we would populate, for example, the dishes document we have just seen earlier. Earlier we were doing Dishes.find to find all the dishes in our database. Now, once you find the Dishes document, then you can say populate. And then supply within the populate, as a parameter, the specific field that needs to be populated. So here we are specifying comments.author. Now the expectation is that the comments.author field is actually an OjectId which references to the user document.
+So this populate call that we perform here will then go and fetch from the database each individual author's record or the user's record. And then take that user document and populates it into the dishes document to construct the compound document from here. And then after that, of course, there some is subsequent handling of data that you have obtained. And then replying or returning the data to the client can take place at this point.
+It essentially means that it'll take a much longer time for the server side to complete the request and send back the information to the client side. So I would suggest that you should use populate very judiciously. You should use it only in circumstances where you really need that information.
+-> populate è un'operazione estremamente pesante, da usare con MOLTO giudizio!
+Now the use of populate and Mongoose population should be done judiciously so as not to cause too much of overhead on the server side.
+Risorse:
+https://mongoosejs.com/docs/populate.html
+https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
+

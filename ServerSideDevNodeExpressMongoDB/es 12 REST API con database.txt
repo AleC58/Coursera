@@ -1,0 +1,8 @@
+Mette insieme le API REST fatte con Express, MongoDB e Mongoose.
+Partire duplicando es07.
+Cambiare "name" sia in package.json che in package-lock.json
+Da es11 copire la directory "models".
+Installa re questi moduli:
+npm install mongoose --save
+npm install mongoose-currency --save
+Copiare da es11\index.js vari pezzi (es connessione con Mongoos, ) in app.js

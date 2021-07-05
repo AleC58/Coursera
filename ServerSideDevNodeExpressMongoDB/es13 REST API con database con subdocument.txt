@@ -1,0 +1,1 @@
+Duplicare es12 (e cambire "name" su package.json e package-lock.json)

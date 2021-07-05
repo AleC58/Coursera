@@ -1,0 +1,1118 @@
+{
+	"info": {
+		"_postman_id": "e8b07d1a-68c1-4ff8-ab50-d88c93fd02c0",
+		"name": "conFusion iniziale",
+		"description": "# Corso \"Server-side Development with NodeJS, Express and MongoDB\"\n## REST endpoint con database MongoDB\n\nvedi es12 REST API con database",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dishes",
+			"item": [
+				{
+					"name": "localhost:3000/dishes/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200 (OK)\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								""
+							]
+						},
+						"description": "Read"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 201 (Created)\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\t\"name\": \"Uthappizza\",\r\n\t\t\t\"image\": \"images/uthappizza.png\",\r\n\t\t\t\"category\": \"mains\",\r\n\t\t\t\"label\": \"Hot\",\r\n\t\t\t\"price\": \"4.99\",\r\n\t\t\t\"featured\": \"true\",\r\n\t\t\t\"description\": \"A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.\",\r\n\t\t\t\"comments\": [{\r\n\t\t\t\t\t\"rating\": 5,\r\n\t\t\t\t\t\"comment\": \"Imagine all the eatables, living in conFusion!\",\r\n\t\t\t\t\t\"author\": \"John Lemon\",\r\n\t\t\t\t\t\"date\": \"2012-10-16T17:57:28.556094Z\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"rating\": 4,\r\n\t\t\t\t\t\"comment\": \"Sends anyone to heaven, I wish I could get my mother-in-law to eat it!\",\r\n\t\t\t\t\t\"author\": \"Paul McVites\",\r\n\t\t\t\t\t\"date\": \"2014-09-05T17:57:28.556094Z\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"rating\": 3,\r\n\t\t\t\t\t\"comment\": \"Eat it, just eat it!\",\r\n\t\t\t\t\t\"author\": \"Michael Jaikishan\",\r\n\t\t\t\t\t\"date\": \"2015-02-13T17:57:28.556094Z\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"rating\": 4,\r\n\t\t\t\t\t\"comment\": \"Ultimate, Reaching for the stars!\",\r\n\t\t\t\t\t\"author\": \"Ringo Starry\",\r\n\t\t\t\t\t\"date\": \"2013-12-02T17:57:28.556094Z\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"rating\": 2,\r\n\t\t\t\t\t\"comment\": \"It's your birthday, we're gonna party!\",\r\n\t\t\t\t\t\"author\": \"25 Cent\",\r\n\t\t\t\t\t\"date\": \"2011-12-02T17:57:28.556094Z\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/dishes/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								""
+							]
+						},
+						"description": "Create"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 405 (Mehod not allowed)\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								""
+							]
+						},
+						"description": "Update"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200 (OK)\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								""
+							]
+						},
+						"description": "Delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dishes/:dishId",
+			"item": [
+				{
+					"name": "localhost:3000/dishes/:dishId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/:dishId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/6069f3db170773456c9d2f5d",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"6069f3db170773456c9d2f5d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/:dishId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"label\": \"new value\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/:dishId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"name value\", \"description\": \"description value\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dishes/:dishId/comments",
+			"item": [
+				{
+					"name": "localhost:3000/dishes/:dishId/comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}/comments/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/:dishId/comments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n           \"rating\": 3,\r\n            \"comment\": \"Inserted comment!\",\r\n            \"author\": \"Test author\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/:dishId/comments",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/606a32c79e5601154cd8d661/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"606a32c79e5601154cd8d661",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/:dishId/comments",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}/comments/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dishes/:dishId/comments/:commentId",
+			"item": [
+				{
+					"name": "localhost:3000/dishes/606a32c79e5601154cd8d661/comments/606a32c79e5601154cd8d663",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"name value\", \"description\": \"description value\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}/comments/{{commentId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/606a32c79e5601154cd8d661/comments/606a32c79e5601154cd8d663",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/606a32c79e5601154cd8d661/comments/606a32c79e5601154cd8d663",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"606a32c79e5601154cd8d661",
+								"comments",
+								"606a32c79e5601154cd8d663"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/606a32c79e5601154cd8d661/comments/606a32c79e5601154cd8d663",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": 4,\r\n    \"comment\": \"modificato\",\r\n    \"author\": \"zzzzPaul McVites\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}/comments/{{commentId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/dishes/:dishId/comments/:commentId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/dishes/{{dishId}}/comments/{{commentId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"{{dishId}}",
+								"comments",
+								"{{commentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promotions",
+			"item": [
+				{
+					"name": "localhost:3000/promotions/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/promotions/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/promotions/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Weekend Grand Buffet\",\r\n      \"image\": \"images/buffet.png\",\r\n      \"label\": \"New\",\r\n      \"price\": \"19.99\",\r\n      \"description\": \"Featuring . . .\",\r\n      \"featured\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/promotions/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/promotions/",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/promotions/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/promotions/",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/promotions/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promotions/:promotionId",
+			"item": [
+				{
+					"name": "localhost:3000/promotions/123",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/promotions/{{promotionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								"{{promotionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/promotions/123",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/promotions/{{promotionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								"{{promotionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/promotions/123",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"modified name value\", \"description\": \"modified description value\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/promotions/{{promotionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								"{{promotionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/promotions/123",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/promotions/{{promotionId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"promotions",
+								"{{promotionId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "leaders",
+			"item": [
+				{
+					"name": "localhost:3000/leaders/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/leaders/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/leaders/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Peter Pan\",\r\n      \"image\": \"images/alberto.png\",\r\n      \"designation\": \"Chief Epicurious Officer\",\r\n      \"abbr\": \"CEO\",\r\n      \"description\": \"Our CEO, Peter, . . .\",\r\n      \"featured\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/leaders/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/leaders/",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/leaders/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/leaders/",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/leaders/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "leaders/:leaderId",
+			"item": [
+				{
+					"name": "localhost:3000/leaders/123",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/leaders/{{leaderId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								"{{leaderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/leaders/123",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/leaders/{{leaderId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								"{{leaderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/leaders/123",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"modified value\", \"description\": \"modified description value\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/leaders/{{leaderId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								"{{leaderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/leaders/123",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"name value\", \"description\": \"description value\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/leaders/123",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"leaders",
+								"123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/",
+			"item": [
+				{
+					"name": "localhost:3000/",
+					"protocolProfileBehavior": {
+						"disableCookies": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								""
+							]
+						},
+						"description": "index.html"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/index.html",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/about.html",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/about.html",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"about.html"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users es17",
+			"item": [
+				{
+					"name": "localhost:3000/users/signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"user1\", \"password\": \"pwd\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users/login",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "pwd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users/logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users es18 (passport)",
+			"item": [
+				{
+					"name": "localhost:3000/users/signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"user1\", \"password\": \"pwd\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users/login con body",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"user1\", \"password\": \"pwd\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users/logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "dishId",
+			"value": "606c2a6d84762a49b48d1ddd"
+		},
+		{
+			"key": "commentId",
+			"value": "606c2a6d84762a49b48d1dde"
+		},
+		{
+			"key": "leaderId",
+			"value": "606c7d4f3aabc33530f4ee41"
+		},
+		{
+			"key": "promotionId",
+			"value": "606c7f983aabc33530f4ee48"
+		}
+	]
+}

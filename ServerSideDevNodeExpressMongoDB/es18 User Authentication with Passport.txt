@@ -1,0 +1,7 @@
+Copiare es17 e cambiare i nomi in package.json e package-lock.json
+
+Installare i tre moduli necessari:
+
+npm install passport passport-local passport-local-mongoose --save
+
+Aggiornare user.js e creare authenticate.js

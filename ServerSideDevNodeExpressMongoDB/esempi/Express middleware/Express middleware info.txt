@@ -1,0 +1,32 @@
+-	creata la directory "Express middleware"
+-	nella directory, click dx / Apri con Code
+-	in VSCode: Terminal /New terminal
+-	nel terminal di VSCode:
+	-	(opz.) se non è già stato fatto in precedenza, installare express:
+		npm install express-generator -g
+		Per verificare l'installazione di express:
+		express -h
+	-	creare lo scheletro dell'app:
+		express --view=pug --git
+		il progetto viene creato nella directory corrente;
+		il nome del progetto (in package.json) viene creato
+		formattando correttamente il nome della directory;
+		se si usa
+		express [opzioni] [directory]
+		il progetto viene creato nella [directory] specificata,
+		sotto la directory corrente
+		--view=pug imposta su "pug" il view/template engine
+		(di default sarebbe ancora "jade", che è deprecato)
+		-- git crea il file .gitignore
+	-	installare le dipendenze:
+		npm install
+	-	(opz.) DIPENDENZE "VECCHIE"
+		Se ci sono warning di dipendenze vecchie o deprecate:
+		-	npm outdated
+		-	aggiornare le versioni in package.json come riportato	dall'output del comando npm outdated
+		-	npm update
+		-	verificare che tutto sia a posto con
+			npm list
+		-	(opz.) se il comando npm list riporta molte dipendenze "deduped" (duplicate), si può usare il comando
+			npm dedupe
+			che tenta di semplificare la struttura eliminando i duplicati

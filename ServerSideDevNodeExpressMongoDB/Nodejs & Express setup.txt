@@ -1,0 +1,90 @@
+** Nodejs setup
+Scaricare Nodejs da https://nodejs.org/ o da https://nodejs.org/en/download/
+ed eseguirlo: questo installa Nodejs nel sistema, e permette di creare ed eseguire applicazioni Nodejs.
+
+** Creazione di un'applicazione Nodejs
+Creare una cartella.
+Da cmd/PS portarsi nella cartella e dare "npm init" per inizializzarla come node application. Il comando crea il fil manifest ("package.json") dell'applicazione.
+Aprire "package.json", e modificare "scripts" aggiungendo "start ...":
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	 "start": "node index"
+  },
+NB: aggiungere anche la "," alla fine di "test"!
+
+** Creazione dei file dell'applicazione
+Per prima cosa creare il file "index.js" (è citato in "main" nel manifest): questo è il "main" dell'applicazione.
+Con VSCode la cosa più comoda è:
+- con cmd/PS aperto nella directory del progetto: code .
+- con Esplora risorse aperto nella directory del progetto: clck dx / Apri con Code
+- creare i vari file, a partire da index.js
+
+** Git
+PRIMA di installare pacchetti/moduli, che non ha senso sincronizzare con GitHub, creare nella directory radice del progetto il seguente file ".gitignore":
+node_modules
+(in questo modo tutto il sottoalbero da "node_modules" viene ignorato)
+
+** Installazione di moduli
+Da cmd/PS aperto nella directory del progetto:
+- npm install <module>
+Il modulo specificato viene installato nella sottodirectory /node_modules.
+Per aggiornare contemporaneamente anche il manifest usare:
+- npm install <module> --save
+oppure
+- npm install <module> --save-dev
+I flag --save servono per scrivere le dipendenze (dell'app corrente ai moduli) in modo che il progetto possa essere ricostruito anche in altre macchine.
+-- save scrive nella sezione "dependencies" (dipendenze necessarie a run-time), mentre --save-dev scrive nella sezione "devDependencies" (dipendenze necessarie in fase di sviluppo, es. testing tools, server locali, ...)
+- npm install -g <module>
+fa un'installazione globale (in /<User>/local/lib/node_modules)
+-> fare installazione locale per usare il modulo nell'applicazione (require())
+-> fare installazione globale per eseguire il modulo da cmd/PS
+
+** Per eseguire l'applicazione:
+- da CMD portarsi nella cartella del progetto e dare: npm start
+- da VSCode: Ctrl + F5 (o F5 per run con debug) o NPM-SCRIPTS / Start / Run
+
+** Come personalizzare il dialogo di npm init per creare un manifest ("package.json") personaizzato (da https://docs.npmjs.com/creating-a-package-json-file)
+(https://dev.to/promhize/one-packagejson-to-rule-them-all-35gn)
+(e finalmente risolto in
+https://medium.com/@bretcameron/13-npm-tricks-for-faster-javascript-development-4fe2a83f87a2)
+- nella propria home directory (es. C:\Users\acazz\)
+  creare il file .npm-init.js (es. da shell: echo "" >.npm-init.js)
+- inserire codice tipo questo:
+const {execSync} = require('child_process');
+const path = require("path");
+const projectName = slugify(path.basename(process.cwd()));
+
+function run(func) {
+	console.log(execSync(func).toString())
+}
+
+function slugify(text) {
+	return text
+		.toString()
+		.toLowerCase()
+		.replace(/\s+/g, "-") // Replace spaces with -
+		.replace(/[^\w\-]+/g, "") // Remove all non-word chars
+		.replace(/\-\-+/g, "-") // Replace multiple - with single -
+		.replace(/^-+/, "") // Trim - from start of text
+		.replace(/-+$/, ""); // Trim - from end of text
+}
+
+module.exports = {
+	name: prompt('package name', projectName || package.name),
+	version: '1.0.0',
+	//decription: prompt('description', ""),
+	decription: "",
+	main: 'index.js',
+	scripts: {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index"
+	},
+	author: 'Alessandro Cazziolato',
+	license: 'ISC',
+}
+
+** Express setup
+Per usare Express, che è implementato come un modulo, bisogna installarlo nel progetto:
+da cmd portarsi nella directory del progetto e dare:
+npm install express --save
+(NB: si può anche usare il terminale integrato in VScode: aprirlo con View / Terminal [Ctrl + ò])

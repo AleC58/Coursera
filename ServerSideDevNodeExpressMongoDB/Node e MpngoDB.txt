@@ -1,0 +1,16 @@
+Node e MpngoDB
+
+Per usare MongoDB in NodeJS/Express serve un driver; per installarlo (è un modulo node):
+- npm install mongodb --save
+
+(nella directory del progetto; NB: ricordarsi il .gitignore)
+
+Documentazione:
+- driver MongoDb per NodeJS:
+  https://github.com/mongodb/node-mongodb-native
+  http://mongodb.github.io/node-mongodb-native/
+- callback Hell:
+  http://callbackhell.com/
+  https://strongloop.com/strongblog/node-js-callback-hell-promises-generators/
+  https://jstutorial.medium.com/the-great-escape-from-callback-hell-3006fa2c82e
+  https://docs.mongodb.com/drivers/node/fundamentals/promises/

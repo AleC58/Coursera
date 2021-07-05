@@ -1,0 +1,18 @@
+#Mongoose
+ 
+## Creare una directory per il progetto, e dare npm init
+
+## Metterci il .gitignore
+
+## Installare Mongoose nel progetto:
+- npm install mongoose --save
+(NB: mongoose incorpora il driver mongodb, che quindi non serve)
+e creare la sottodirectory "models", dove si salveranno i gli schemi e imodelli per le varie collection.
+
+## Creare la sottodirectory models, e li dentro il file dishes.js, che conerrà lo schema e il modello per la collection dishes.
+
+## Creare index.js
+
+## Far partire il server Mongodb
+In una shell admin dare "mongod" (per il dbpath di default)
+o "mongod --dbpath=<percorso>"  (es. mongod --dbpath=c:\mongodbdata\db)

@@ -1,0 +1,17 @@
+{
+	"name": "es16-basic-authentication-with-cookies",
+	"version": "0.0.0",
+	"decription": "Basic authentication with cookies. The server will send a signed cookie to the client upon successful authentication, and expects the client to include the cookie with every subsequent request.",
+	"private": true,
+	"scripts": {
+		"start": "node ./bin/www"
+	},
+	"dependencies": {
+		"cookie-parser": "~1.4.4",
+		"debug": "~2.6.9",
+		"express": "~4.16.1",
+		"http-errors": "~1.6.3",
+		"jade": "~1.11.0",
+		"morgan": "~1.9.1"
+	}
+}

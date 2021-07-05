@@ -1,0 +1,15 @@
+Oggetti request e response
+
+Chiusura del ciclo request/response: end vs send
+Quando si scrive la risposta, bisogna scrivere prima tutte le voci nell'header.
+La prima scrittura di informazioni nel body chiude l'header: successivi tentativi di scrivere voci nell'header causeranno errore.
+
+Per scrivere un voce nell'header usare
+response.setHeader(name, value)
+es: response.setHeader('Content-Type', 'text/html');
+
+Per scrivere nel body usare
+response.write(string o Buffer)
+
+- response.end() invia la risposta al client e chiude il ciclo request/response
+- response.send(string o Buffer o obj) imposta il content type (se non era stato impostato in precedenza) sulla base del tipo del parametro, scrive anche il campo etag nell'header (per il supporto cache), scrive il parametro nel body e infine invia la risposta al client e chiude il ciclo request/response. Poiché scrive nell'header, NON può essere preceduta da response.write

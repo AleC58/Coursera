@@ -1,0 +1,16 @@
+{
+  "name": "es08-nodejs-mongodb-connection",
+  "version": "1.0.0",
+  "decription": "Connessione a db MongoDB da app NodeJS con alcune semplici operazioni",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "Alessandro Cazziolato",
+  "license": "MIT",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "mongodb": "^3.6.5"
+  }
+}

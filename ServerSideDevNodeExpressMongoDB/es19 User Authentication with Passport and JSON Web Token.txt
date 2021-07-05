@@ -1,0 +1,24 @@
+es19 User Authentication with Passport and JSON Web Token
+
+Installare passport-jwt e jsonwebtoken:
+
+npm install passport-jwt jsonwebtoken --save
+
+Creare nella root del progetto il file config.js, nel quale mettere info di configurazione.
+In authenticate.js creare la JwtStrategy
+
+Risorse:
+http://www.passportjs.org/
+https://github.com/jaredhanson/passport-local
+https://github.com/saintedlama/passport-local-mongoose
+https://github.com/mikenicholson/passport-jwt
+https://jwt.io/
+https://github.com/auth0/node-jsonwebtoken
+https://mherman.org/blog/local-authentication-with-passport-and-express-4/
+https://scotch.io/tutorials/authenticate-a-node-es6-api-with-json-web-tokens
+https://www.sitepoint.com/using-json-web-tokens-node-js/
+https://stormpath.com/blog/token-auth-spa
+https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication
+https://scotch.io/tutorials/the-anatomy-of-a-json-web-token
+https://hackernoon.com/your-node-js-authentication-tutorial-is-wrong-f1a3bf831a46
+https://jonathanmh.com/express-passport-json-web-token-jwt-authentication-beginners/
